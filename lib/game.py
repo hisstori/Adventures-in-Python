@@ -7,6 +7,7 @@ import random
 ### TODO G create an input to take you to an instructions script
 ### TODO S create an input to start the game
 # start of the adventure
+# URGENT describe here how the health and attack systems play out
 # shuffles trash(weak) enemies
 # shuffles boss(strong) enemies
 # this variable will hold the hero total health points
