@@ -45,12 +45,12 @@ def start():
         || Fighting will commence the fight between you and the enemy.                         ||
         || Attacks will be entered with "Hit/hit" and will do random damage to an enemy.       ||
         || Fleeing will cause you to avoid the fight at the cost of 7 HP.                      ||
-        || VICTORY if you defeat all five enemies and the boss.                                ||
-        || DEFEAT if you lose all of your HP.                                                  ||
+        || VICTORY: You defeat all five enemies and the boss.                                ||
+        || DEFEAT: You lose all of your HP.                                                  ||
         =========================================================================================
         =========================================================================================                   
-        ||                  Hello {name}, welcome to Adventures in Python!                   ||
-        ||                    In this game you take control of a lone hero                     ||
+        ||                  Hello {name}, welcome to Adventures in Python!                   ||||
+        ||                 In this game you take control of a lone hero and                    ||
         ||                 Try escape the forested area from which you awoke                   ||
         =========================================================================================
     ''')
@@ -66,16 +66,19 @@ def start():
                     values = {enemy['health']}
                     values = ''.join(map(str, {enemy['health']}))
                     eHP = int(values)
-                    hero_attack = roll
+                    hHP = HP
+                    hero_attack = (roll)
                     print(hero_attack)
+
+                    values = ''.join(map(str, {enemy['attack']}))
                     enemy_attack = ({enemy['attack']})
                     print(enemy_attack)
-                    while eHP >= 1:
-                        hero_attack -= eHP
-                        print(hero_attack)
+                    if eHP > 1:
+                        eHP -= hero_attack
+                        print(eHP)
                         print(f'{hero_attack} // {eHP}')
                         print(f"The {enemy['name']} has [{eHP}: HP] remaining.")
-                        enemy_attack -= {HP}
+                        hHP -= enemy_attack
                         print(f"{name}, you have [{HP}: HP] remaining!")
                     else:
                         return
