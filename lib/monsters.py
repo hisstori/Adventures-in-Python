@@ -18,11 +18,11 @@ monster = [{
 },
 {
     "name": "Orc Berserker",
-    "health": 7,
-    "attack": 7
+    "health": 6,
+    "attack": 6
 },
 {
     "name": "Ogre Warrior",
     "health": 10,
-    "attack": 4
+    "attack": 3
 }]
