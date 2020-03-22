@@ -1,7 +1,7 @@
 # an array of monster dictionaries
 #will hold enemy name, health points and attack value
 
-monster = [{
+trash = [{
     "name": "Imp Scout",
     "health": 2,
     "attack": 1
