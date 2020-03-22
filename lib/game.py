@@ -44,11 +44,10 @@ def start():
         || Fighting will commence the fight between you and the enemy.                         ||
         || Attacks will be entered with "Hit/hit" and will do random damage to an enemy.       ||
         || Fleeing will cause you to avoid the fight at the cost of 7 HP.                      ||
-        || VICTORY: You defeat all five enemies and the boss.                                ||
-        || DEFEAT: You lose all of your HP.                                                  ||
-        =========================================================================================
-        =========================================================================================                   
-        ||                  Hello {name}, welcome to Adventures in Python!                   ||||
+        || VICTORY: You defeat all five enemies and the boss.                                  ||
+        || DEFEAT: You lose all of your HP.                                                    ||
+        =========================================================================================                  
+        ||                  Hello {name }, welcome to Adventures in Python!                    ||
         ||                 In this game you take control of a lone hero and                    ||
         ||                 Try escape the forested area from which you awoke                   ||
         =========================================================================================
@@ -57,15 +56,16 @@ def start():
     res = input()
     if (res == 'Yes' or res == 'yes'):
         for enemy in (trash):
-            print(f"You have encountered {enemy['name']}")
+            print(f"You have encountered the {enemy['name']}")
             print(f"Do you want to fight or flee?")
             res = input()
             if (res == 'Fight' or res == 'fight'):
                 def fight():
-                    values = {enemy['health']}
-                    values = ''.join(map(str, {enemy['health']}))
-                    enemy_hp = int(values)
-                    print(enemy_hp)
+                    eHP = {enemy['health']}
+                    print(eHP)
+                    # values = ''.join(map(str, {enemy['health']}))
+                    # enemy_hp = int(values)
+                    # print(enemy_hp)
                     HP = 50
                     hero_attack = roll
                     print(hero_attack)
@@ -73,36 +73,25 @@ def start():
                     values = ''.join(map(str, {enemy['attack']}))
                     enemy_attack = int(values)
                     print(enemy_attack)
-                    for eHP in range(enemy_hp):
-                        if eHP > 0:
-                            eHP -= hero_attack
-                            print(eHP)
-                            print(f'{hero_attack} // {eHP}')
-                            print(f"The {enemy['name']} has [{eHP}: HP] remaining.")
+                    for enemy_hp in ({enemy['health']}):
+                        print({enemy['health']})
+                        print()
+                        print(enemy_hp, '->', enemy_hp)
+                        while enemy_hp > 0:
+                            enemy_hp -= hero_attack
+                            print(enemy_hp)
+                            print(f"{hero_attack} // {enemy_hp}")
+                            print(f"The {enemy['name']} has [{enemy_hp}: HP] remaining!")
                             HP -= enemy_attack
                             print(f"{name}, you have [{HP}: HP] remaining!")
-                        elif eHP == 0:
-                            print(f"{name} defeated the {enemy['name']}")
+                            if enemy_hp <= 0:
+                                return print(f"{name} defeated the {enemy['name']}")
                 fight()
-            else:
-                print('lose')
-                # HP -= 5
-                # print(f'Your current HP is [{HP}: HP]!')
+                if (res == "Flee" or res == 'flee'):
+                    print('lose')
+                    HP -= 5
+                    print(f'Your current HP is [{HP}: HP]!')
     else:
         print(f'Farewell {name}, see you soon!')
-
-    # def fight():
-    #     hero_attack = (random.randint(4,8))
-    #     print(hero_attack)
-    #     enemy_attack = ({enemy['attack']})
-    #     print(enemy_attack)
-    #     while {enemy['health']} > 1:
-    #         hero_attack - ({enemy['health']})
-    #         print(f"The {enemy['name']} has [{enemy['health']}: HP] remaining.")
-    #         enemy_attack - ({HP})
-    #         print(f"{name}, you have [{HP}: HP] remaining!")
-    #     else:
-    #         return
-
 
 start()
