@@ -48,7 +48,7 @@ def start():
         || VICTORY: You defeat all five enemies and the boss.                                  ||
         || DEFEAT: You lose all of your HP.                                                    ||
         =========================================================================================                  
-        ||                  Hello {name }, welcome to Adventures in Python!!                   ||
+        ||                  Hello { name }, welcome to Adventures in Python!!                   ||
         ||                 In this game you take control of a lone hero and                    ||
         ||                 Try escape the forested area from which you awoke                   ||
         =========================================================================================
@@ -61,12 +61,8 @@ def start():
             print(f"Do you want to fight or flee?")
             res = input()
             if (res == 'Fight' or res == 'fight'):
-                def fight():
                     eHP = {enemy['health']}
                     print(eHP)
-                    # values = ''.join(map(str, {enemy['health']}))
-                    # enemy_hp = int(values)
-                    # print(enemy_hp)
                     hero_attack = roll
                     print(hero_attack)
                     values = {enemy['attack']}
@@ -86,17 +82,15 @@ def start():
                             HP -= enemy_attack
                             print(f"{name}, you have [{HP}: HP] remaining!")
                             if enemy_hp <= 0:
-                                return print(f"{name} defeated the {enemy['name']}")
-                fight()
+                                print(f"{name} defeated the {enemy['name']}")
             elif (res == "Flee" or res == 'flee'):
                 print('lose')
-                global HP
                 HP -= 5
                 print(f'Your current HP is [{HP}: HP]!')
     else:
         print(f'Farewell {name}, see you soon!')
 
-
+global HP
 HP = 50
 
 start()
