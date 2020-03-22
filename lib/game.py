@@ -53,9 +53,18 @@ def start():
         ||                 Try escape the forested area from which you awoke                   ||
         =========================================================================================
     ''')
+    print(f'Are you ready to continue {name}?')
+    input()
+    if (input == 'Yes' or input == 'yes'):
+        for monster in (trash):
+            print(f'You have encountered {trash['name']}\nDo you want to fight or flee?')
+        input()
+        if (input == 'Fight' or input == 'fight'):
 
-    # for monster in (trash)
-    #     print('')
+    else:
+        print(f'Farewell {name}, see you soon!')
 
+
+# def fight():
 
 start()
