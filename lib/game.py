@@ -32,7 +32,7 @@ from bosses import boss
 def start():
     random.shuffle(trash)
     random.shuffle(boss)
-    roll = random.randint(4, 8) 
+    roll = random.randint(4, 8)
     print('Hello there brave adventurer, what is your name?')
     name = input()
     print(f'''
@@ -61,34 +61,36 @@ def start():
             print(f"Do you want to fight or flee?")
             res = input()
             if (res == 'Fight' or res == 'fight'):
-                    eHP = {enemy['health']}
-                    print(eHP)
-                    hero_attack = roll
-                    print(hero_attack)
-                    values = {enemy['attack']}
-                    values = ''.join(map(str, {enemy['attack']}))
-                    enemy_attack = int(values)
-                    print(enemy_attack)
-                    for enemy_hp in ({enemy['health']}):
-                        print({enemy['health']})
-                        print()
-                        print(enemy_hp, '->', enemy_hp)
-                        while enemy_hp > 0:
-                            enemy_hp -= hero_attack
-                            print(enemy_hp)
-                            print(f"{hero_attack} // {enemy_hp}")
-                            print(f"The {enemy['name']} has [{enemy_hp}: HP] remaining!")
-                            global HP 
-                            HP -= enemy_attack
-                            print(f"{name}, you have [{HP}: HP] remaining!")
-                            if enemy_hp <= 0:
-                                print(f"{name} defeated the {enemy['name']}")
+                eHP = {enemy['health']}
+                print(eHP)
+                hero_attack = roll
+                print(hero_attack)
+                values = {enemy['attack']}
+                values = ''.join(map(str, {enemy['attack']}))
+                enemy_attack = int(values)
+                print(enemy_attack)
+                for enemy_hp in ({enemy['health']}):
+                    print({enemy['health']})
+                    print()
+                    print(enemy_hp, '->', enemy_hp)
+                    while enemy_hp > 0:
+                        enemy_hp -= hero_attack
+                        print(enemy_hp)
+                        print(f"{hero_attack} // {enemy_hp}")
+                        print(
+                            f"The {enemy['name']} has [{enemy_hp}: HP] remaining!")
+                        global HP
+                        HP -= enemy_attack
+                        print(f"{name}, you have [{HP}: HP] remaining!")
+                        if enemy_hp <= 0:
+                            print(f"{name} defeated the {enemy['name']}")
             elif (res == "Flee" or res == 'flee'):
                 print('lose')
                 HP -= 5
                 print(f'Your current HP is [{HP}: HP]!')
     else:
         print(f'Farewell {name}, see you soon!')
+
 
 global HP
 HP = 50
