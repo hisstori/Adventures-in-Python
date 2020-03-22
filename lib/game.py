@@ -32,6 +32,7 @@ def start():
     HP = 50
     random.shuffle(trash)
     random.shuffle(boss)
+    roll = random.randint(4, 8) 
     print('Hello there brave adventurer, what is your name?')
     name = input()
     print(f'''
@@ -54,31 +55,49 @@ def start():
         =========================================================================================
     ''')
     print(f'Are you ready to continue {name}?')
-    input()
-    if (input == 'Yes' or input == 'yes'):
+    res = input()
+    if (res == 'Yes' or res == 'yes'):
         for enemy in (trash):
             print(f"You have encountered {enemy['name']}")
             print(f"Do you want to fight or flee?")
-            input()
-        if (input == 'Fight' or input == 'fight'):
-            fight()
-        else:
-            (HP - 5)
-            print(f'Your current HP is {HP}!')
+            res = input()
+            if (res == 'Fight' or res == 'fight'):
+                def fight():
+                    values = {enemy['health']}
+                    values = ''.join(map(str, {enemy['health']}))
+                    eHP = int(values)
+                    hero_attack = roll
+                    print(hero_attack)
+                    enemy_attack = ({enemy['attack']})
+                    print(enemy_attack)
+                    while eHP >= 1:
+                        hero_attack -= eHP
+                        print(hero_attack)
+                        print(f'{hero_attack} // {eHP}')
+                        print(f"The {enemy['name']} has [{eHP}: HP] remaining.")
+                        enemy_attack -= {HP}
+                        print(f"{name}, you have [{HP}: HP] remaining!")
+                    else:
+                        return
+                fight()
+            else:
+                (HP - 5)
+                print(f'Your current HP is [{HP}: HP]!')
     else:
         print(f'Farewell {name}, see you soon!')
 
-
-    def fight():
-        hero_attack = (random.randint(4,8))
-        enemy_attack = ({enemy['attack']})
-        while {enemy['health']} >= 0:
-            hero_attack - ({enemy['health']})
-            enemy_attack - ({HP})
-        else:
-            return
-
-
+    # def fight():
+    #     hero_attack = (random.randint(4,8))
+    #     print(hero_attack)
+    #     enemy_attack = ({enemy['attack']})
+    #     print(enemy_attack)
+    #     while {enemy['health']} > 1:
+    #         hero_attack - ({enemy['health']})
+    #         print(f"The {enemy['name']} has [{enemy['health']}: HP] remaining.")
+    #         enemy_attack - ({HP})
+    #         print(f"{name}, you have [{HP}: HP] remaining!")
+    #     else:
+    #         return
 
 
 start()
