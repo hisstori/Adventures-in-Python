@@ -1,4 +1,5 @@
 # an array of monster dictionaries
+#will hold enemy name, health points and attack value
 
 monster = [{
     "name": "Imp Scout",
