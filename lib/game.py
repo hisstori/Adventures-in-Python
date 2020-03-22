@@ -48,7 +48,7 @@ def start():
         || DEFEAT if you lose all of your HP.                                                  ||
         =========================================================================================
         =========================================================================================                   
-        ||                  Hello {name}, welcome to Adventures in Python!                     ||
+        ||                  Hello {name}, welcome to Adventures in Python!                   ||
         ||                    In this game you take control of a lone hero                     ||
         ||                 Try escape the forested area from which you awoke                   ||
         =========================================================================================
@@ -56,15 +56,29 @@ def start():
     print(f'Are you ready to continue {name}?')
     input()
     if (input == 'Yes' or input == 'yes'):
-        for monster in (trash):
-            print(f'You have encountered {trash['name']}\nDo you want to fight or flee?')
-        input()
+        for enemy in (trash):
+            print(f"You have encountered {enemy['name']}")
+            print(f"Do you want to fight or flee?")
+            input()
         if (input == 'Fight' or input == 'fight'):
-
+            fight()
+        else:
+            (HP - 5)
+            print(f'Your current HP is {HP}!')
     else:
         print(f'Farewell {name}, see you soon!')
 
 
-# def fight():
+    def fight():
+        hero_attack = (random.randint(4,8))
+        enemy_attack = ({enemy['attack']})
+        while {enemy['health']} >= 0:
+            hero_attack - ({enemy['health']})
+            enemy_attack - ({HP})
+        else:
+            return
+
+
+
 
 start()
