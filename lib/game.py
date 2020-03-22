@@ -88,10 +88,11 @@ def start():
                             if enemy_hp <= 0:
                                 return print(f"{name} defeated the {enemy['name']}")
                 fight()
-            # if (res == "Flee" or res == 'flee'):
-            #     print('lose')
-            #     HP -= 5
-            #     print(f'Your current HP is [{HP}: HP]!')
+            elif (res == "Flee" or res == 'flee'):
+                print('lose')
+                global HP
+                HP -= 5
+                print(f'Your current HP is [{HP}: HP]!')
     else:
         print(f'Farewell {name}, see you soon!')
 
