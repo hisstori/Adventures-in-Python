@@ -28,6 +28,7 @@ from bosses import boss
 # game is lost if user loses all health points
 # give user the option to restart the game from the beginning
 
+
 def start():
     random.shuffle(trash)
     random.shuffle(boss)
@@ -47,7 +48,7 @@ def start():
         || VICTORY: You defeat all five enemies and the boss.                                  ||
         || DEFEAT: You lose all of your HP.                                                    ||
         =========================================================================================                  
-        ||                  Hello {name }, welcome to Adventures in Python!                    ||
+        ||                  Hello {name }, welcome to Adventures in Python!!                   ||
         ||                 In this game you take control of a lone hero and                    ||
         ||                 Try escape the forested area from which you awoke                   ||
         =========================================================================================
@@ -66,7 +67,6 @@ def start():
                     # values = ''.join(map(str, {enemy['health']}))
                     # enemy_hp = int(values)
                     # print(enemy_hp)
-                    HP = 50
                     hero_attack = roll
                     print(hero_attack)
                     values = {enemy['attack']}
@@ -82,16 +82,20 @@ def start():
                             print(enemy_hp)
                             print(f"{hero_attack} // {enemy_hp}")
                             print(f"The {enemy['name']} has [{enemy_hp}: HP] remaining!")
+                            global HP 
                             HP -= enemy_attack
                             print(f"{name}, you have [{HP}: HP] remaining!")
                             if enemy_hp <= 0:
                                 return print(f"{name} defeated the {enemy['name']}")
                 fight()
-                if (res == "Flee" or res == 'flee'):
-                    print('lose')
-                    HP -= 5
-                    print(f'Your current HP is [{HP}: HP]!')
+            # if (res == "Flee" or res == 'flee'):
+            #     print('lose')
+            #     HP -= 5
+            #     print(f'Your current HP is [{HP}: HP]!')
     else:
         print(f'Farewell {name}, see you soon!')
+
+
+HP = 50
 
 start()
