@@ -2,7 +2,7 @@
 import random
 from hero import hero
 from monsters import trash
-from bosses import boss
+from bosses import bosses
 
 
 # TODO G create welcome landing as table of contents with more info
@@ -31,11 +31,11 @@ from bosses import boss
 
 def start():
     random.shuffle(trash)
-    random.shuffle(boss)
+    random.shuffle(bosses)
     roll = random.randint(4, 8)
     print('Hello there brave adventurer, what is your name?')
     name = input()
-    print(f'''
+    print(f"""
         =========================================================================================
         || INSTRUCTIONS:                                                                       ||
         || The objective is to defeat all five enemies plus one boss enemy.                    ||
@@ -48,11 +48,11 @@ def start():
         || VICTORY: You defeat all five enemies and the boss.                                  ||
         || DEFEAT: You lose all of your HP.                                                    ||
         =========================================================================================                  
-        ||                  Hello { name }, welcome to Adventures in Python!!                   ||
+        ||                 Hello { name }, welcome to Adventures in Python!!                   ||
         ||                 In this game you take control of a lone hero and                    ||
         ||                 Try escape the forested area from which you awoke                   ||
         =========================================================================================
-    ''')
+    """)
     print(f'Are you ready to continue {name}?')
     res = input()
     if (res == 'Yes' or res == 'yes'):
@@ -71,7 +71,6 @@ def start():
                 print(enemy_attack)
                 for enemy_hp in ({enemy['health']}):
                     print({enemy['health']})
-                    print()
                     print(enemy_hp, '->', enemy_hp)
                     while enemy_hp > 0:
                         enemy_hp -= hero_attack
@@ -88,6 +87,15 @@ def start():
                 print('lose')
                 HP -= 5
                 print(f'Your current HP is [{HP}: HP]!')
+        for boss in bosses:
+            print(f""" The {boss[0]['name']} has emerged onto the battlefield.
+                       {name} did not have the opportunity to avoid the encounter,
+                       preparing thierself, {name} attacks the {boss[0]['name']}! """)
+            print("===================================================================")
+            bHP = {boss[0]['health']}
+            print(bHP)
+            
+
     else:
         print(f'Farewell {name}, see you soon!')
 

@@ -17,8 +17,8 @@ trash = [{
     "attack": 2
 },
 {
-    "name": "Orc Berserker",
-    "health": 6,
+    "name": "Goblin Archer",
+    "health": 5,
     "attack": 6
 },
 {

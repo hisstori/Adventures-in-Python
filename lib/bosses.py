@@ -8,7 +8,7 @@ def attack():
     random.randint(1,7)
     # print(random.randint(1,7))
 
-boss = [{
+bosses = [{
     "name": "Orc Berserker",
     "health": 30,
     "attack": attack()
