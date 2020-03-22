@@ -29,7 +29,6 @@ from bosses import boss
 # give user the option to restart the game from the beginning
 
 def start():
-    HP = 50
     random.shuffle(trash)
     random.shuffle(boss)
     roll = random.randint(4, 8) 
@@ -65,27 +64,30 @@ def start():
                 def fight():
                     values = {enemy['health']}
                     values = ''.join(map(str, {enemy['health']}))
-                    eHP = int(values)
-                    hHP = HP
-                    hero_attack = (roll)
+                    enemy_hp = int(values)
+                    print(enemy_hp)
+                    HP = 50
+                    hero_attack = roll
                     print(hero_attack)
-
+                    values = {enemy['attack']}
                     values = ''.join(map(str, {enemy['attack']}))
-                    enemy_attack = ({enemy['attack']})
+                    enemy_attack = int(values)
                     print(enemy_attack)
-                    if eHP > 1:
-                        eHP -= hero_attack
-                        print(eHP)
-                        print(f'{hero_attack} // {eHP}')
-                        print(f"The {enemy['name']} has [{eHP}: HP] remaining.")
-                        hHP -= enemy_attack
-                        print(f"{name}, you have [{HP}: HP] remaining!")
-                    else:
-                        return
+                    for eHP in range(enemy_hp):
+                        if eHP > 0:
+                            eHP -= hero_attack
+                            print(eHP)
+                            print(f'{hero_attack} // {eHP}')
+                            print(f"The {enemy['name']} has [{eHP}: HP] remaining.")
+                            HP -= enemy_attack
+                            print(f"{name}, you have [{HP}: HP] remaining!")
+                        elif eHP == 0:
+                            print(f"{name} defeated the {enemy['name']}")
                 fight()
             else:
-                (HP - 5)
-                print(f'Your current HP is [{HP}: HP]!')
+                print('lose')
+                # HP -= 5
+                # print(f'Your current HP is [{HP}: HP]!')
     else:
         print(f'Farewell {name}, see you soon!')
 
