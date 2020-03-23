@@ -60,9 +60,9 @@ def start():
             print(f"You have encountered the {enemy['name']}")
             print(f"Do you want to fight or flee?")
             res = input()
-            if (res == 'Fight' or res == 'fight'):
-                eHP = {enemy['health']}
-                print(eHP)
+            if (res == 'Fight' or 'fight'):
+                # eHP = {enemy['health']}
+                # print(eHP)
                 hero_attack = roll
                 print(hero_attack)
                 values = {enemy['attack']}
@@ -82,20 +82,44 @@ def start():
                         HP -= enemy_attack
                         print(f"{name}, you have [{HP}: HP] remaining!")
                         if enemy_hp <= 0:
-                            print(f"{name} defeated the {enemy['name']}")
+                            print(f"{name} defeated the {enemy['name']}.")
             elif (res == "Flee" or res == 'flee'):
                 print('lose')
                 HP -= 5
                 print(f'Your current HP is [{HP}: HP]!')
-        for boss in bosses:
-            print(f""" The {boss[0]['name']} has emerged onto the battlefield.
+        for boss in (bosses):
+            print(f"{boss}")
+            print(f"{bosses}")
+            print(f""" The {boss['name']} has emerged onto the battlefield.
                        {name} did not have the opportunity to avoid the encounter,
-                       preparing thierself, {name} attacks the {boss[0]['name']}! """)
+                       preparing thierself, {name} attacks the {boss['name']}! """)
             print("===================================================================")
-            bHP = {boss[0]['health']}
+            bHP = {boss['health']}
             print(bHP)
-            
+            boss_attack = {boss['health']}
+            print(boss_attack)
+            while bHP > 0:
+                bHP -= hero_attack
+                print(
+                    f"{name} swings thier sword and hits the {boss['name']} for {hero_attack} damage!")
+                HP -= boss_attack
+                print(f"""The {boss['name']}, delivers a powerful blow to {name}!
+                          {name} takes {boss_attack} damage from the {boss['name']}!
+                          {name} has [{HP}: HP] remaining!""")
+                if bHP <= 0:
+                    print(f"{name} has defeated the deadly {boss['name']}!")
 
+                    def restart():
+                        print(
+                            f"Congratulations, you defeated the {boss['name']} and escaped the Dark Forest!")
+                        print('''Would you like to play again? 
+                        Yes or No?''')
+                        res = input()
+                        if res == 'Yes' or 'yes':
+                            start()
+                            restart()
+                        else:
+                            print('Please come back soon!')
     else:
         print(f'Farewell {name}, see you soon!')
 
