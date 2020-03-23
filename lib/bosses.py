@@ -4,14 +4,14 @@ import random
 
 bosses = [{
     "name": "Orc Berserker",
-    "health": 30,
+    "health": 40,
     "attack": 9
 },{
     "name": "Goblin Assassin",
-    "health": 24,
-    "attack": 3 * 3
+    "health": 34,
+    "attack": 4 * 3
 },{
     "name": "Ogre Captain",
-    "health": 35,
+    "health": 45,
     "attack": 7
 }]

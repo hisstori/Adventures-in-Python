@@ -1,6 +1,6 @@
 # import random method to use for attacks
 import random
-from hero import hero
+# from hero import hero
 from monsters import trash
 from bosses import bosses
 
@@ -62,8 +62,8 @@ def start():
             """)
             res = input()
             if res == 'Fight' or 'fight':
-                roll = random.randint(4, 8)
-                hero_attack = roll
+        # def fight():
+                # hero_attack = roll
                 values = {enemy['attack']}
                 values = ''.join(map(str, {enemy['attack']}))
                 enemy_attack = int(values)
@@ -73,37 +73,44 @@ def start():
                         # print(f"==============================[STAGE {stage}]==============================")
                         enemy_hp -= hero_attack
                         print(f"""
-                {name} swiftly delivers a strike to the {enemy['name']}
-                The {enemy['name']} receives {hero_attack} damage!
-                The {enemy['name']} has [{enemy_hp}: HP] remai
+            {name} delivers a strike to the {enemy['name']}
+            The {enemy['name']} receives {hero_attack} damage!
+            The {enemy['name']} has [{enemy_hp}: HP] remai
                                 """)
                         global HP
                         HP -= enemy_attack
                         print(f"""
-                The {enemy['name']} hits {name}
-                {name} receives {enemy_attack} damage!
-                {name} has [{HP}: HP] remaining!
+            The {enemy['name']} hits {name}
+            {name} receives {enemy_attack} damage!
+            {name} has [{HP}: HP] remaning!
                                 """)
                         global counter
                         counter += 1
                         # stage += 1
-                        print(f"=====Round:[-> {counter} <-]=====")
+                        print(f"          =====Round:[-> {counter} <-]=====")
                         if enemy_hp <= 0:
                             print(f"{name} defeated the {enemy['name']}.")
-                        elif HP <= 0:
+                        if HP <= 0:
                             print(f"""
-                You Lose!
-                Sorry {name}, you did not escape please try again!
+            You Lose!
+            Sorry {name}, you did not escape please try again!
                                     """)
-            if res == "Flee" or 'flee':
-                print(f"While deciding to flee {name} receives 5 damage!!")
-                HP -= 5
-                print(f'{name}\'s current HP is [{HP}: HP]!')
+                    # fight()
+                    # bossFight()
+                else:
+                    print(f"While deciding to flee {name} receives 5 damage!!")
+                    HP -= 5
+                    print(f'{name}\'s current HP is [{HP}: HP]!')
+        # def bossFight():
         print(f"""
-        The {bosses[0]['name']} has emerged onto the battlefield.
-        {name} did not have an opportunity to avoid the encounter,
-        preparing thierself, {name} attacks the {bosses[0]['name']}!
-                """)
+            ==================================================================   
+            ||  The {bosses[0]['name']} has emerged onto the battlefield.   ||
+            ||  {name} did not have an opportunity to avoid the encounter,  ||
+            ||  preparing thierself, {name} attacks the {bosses[0]['name']}!||
+            ==================================================================
+                    """)
+        print("Press any key to continue")
+        input()
         bHP = bosses[0]['health']
         boss_attack = bosses[0]['attack']
         while bHP > 0:
@@ -147,14 +154,14 @@ def start():
                     print('Please come back soon!')
 
 
-# global stage
-# stage = 1
+
 global counter
 counter = 0
 global HP
 HP = 100
 global roll
 roll = random.randint(4, 9)
-
+global hero_attack
+hero_attack = roll
 
 start()
