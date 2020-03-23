@@ -32,9 +32,8 @@ from bosses import bosses
 def start():
     random.shuffle(trash)
     random.shuffle(bosses)
-    roll = random.randint(4, 8)
     print('Hello there brave adventurer, what is your name?')
-    name = str(input())
+    name = input()
     print(f"""
         =========================================================================================
         || INSTRUCTIONS:                                                                       ||
@@ -54,15 +53,16 @@ def start():
         =========================================================================================
     """)
     print(f'Are you ready to continue {name}?')
-    res = str(input())
+    res = input()
     if res == 'Yes' or 'yes':
         for enemy in (trash):
             print(f"""
             A {enemy['name']} has ambushed {name}!!
             Do you want to fight or flee?
             """)
-            res = str(input())
+            res = input()
             if res == 'Fight' or 'fight':
+                roll = random.randint(4, 8)
                 hero_attack = roll
                 values = {enemy['attack']}
                 values = ''.join(map(str, {enemy['attack']}))
@@ -95,7 +95,7 @@ def start():
                 You Lose!
                 Sorry {name}, you did not escape please try again!
                                     """)
-            elif res == "Flee" or 'flee':
+            if res == "Flee" or 'flee':
                 print(f"While deciding to flee {name} receives 5 damage!!")
                 HP -= 5
                 print(f'{name}\'s current HP is [{HP}: HP]!')
@@ -108,7 +108,8 @@ def start():
         boss_attack = bosses[0]['attack']
         while bHP > 0:
             bHP -= hero_attack
-            print("==============================[BOSS]==============================")
+            print(
+                "==============================[BOSS]==============================")
             print(
                 f"""
         {name} swings thier sword and hits the {bosses[0]['name']} for {hero_attack} damage!
@@ -128,7 +129,6 @@ def start():
                         """)
                 print('''Would you like to play again? 
                             Yes or No?''')
-                restart()
             elif HP <= 0:
                 print(f"""
             You Lose!
@@ -139,18 +139,22 @@ def start():
             def restart():
                 print('''Would you like to play again? 
                             Yes or No?''')
-                res = str(input())
+                res = input()
                 if res == 'Yes' or 'yes':
                     start()
                     restart()
                 else:
                     print('Please come back soon!')
 
+
 # global stage
 # stage = 1
 global counter
 counter = 0
 global HP
-HP = 50
+HP = 100
+global roll
+roll = random.randint(4, 9)
+
 
 start()
