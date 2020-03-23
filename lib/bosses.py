@@ -2,16 +2,10 @@ import random
 # an array of boss enemy dictionaries
 # will include boss name, helath points, and attack value
 
-def attack():
-    random.randint(2,5)
-    # print(random.randint(2,5))
-    random.randint(1,7)
-    # print(random.randint(1,7))
-
 bosses = [{
     "name": "Orc Berserker",
     "health": 30,
-    "attack": attack()
+    "attack": 9
 },{
     "name": "Goblin Assassin",
     "health": 24,
@@ -19,7 +13,5 @@ bosses = [{
 },{
     "name": "Ogre Captain",
     "health": 35,
-    "attack": 8
+    "attack": 7
 }]
-
-# attack()

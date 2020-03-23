@@ -22,7 +22,7 @@ trash = [{
     "attack": 6
 },
 {
-    "name": "Ogre Warrior",
+    "name": "Goblin Warrior",
     "health": 10,
     "attack": 3
 }]

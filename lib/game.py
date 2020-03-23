@@ -34,7 +34,7 @@ def start():
     random.shuffle(bosses)
     roll = random.randint(4, 8)
     print('Hello there brave adventurer, what is your name?')
-    name = input()
+    name = str(input())
     print(f"""
         =========================================================================================
         || INSTRUCTIONS:                                                                       ||
@@ -47,83 +47,109 @@ def start():
         || Fleeing will cause you to avoid the fight at the cost of 7 HP.                      ||
         || VICTORY: You defeat all five enemies and the boss.                                  ||
         || DEFEAT: You lose all of your HP.                                                    ||
-        =========================================================================================                  
+        =========================================================================================
         ||                 Hello { name }, welcome to Adventures in Python!!                   ||
         ||                 In this game you take control of a lone hero and                    ||
         ||                 Try escape the forested area from which you awoke                   ||
         =========================================================================================
     """)
     print(f'Are you ready to continue {name}?')
-    res = input()
-    if (res == 'Yes' or res == 'yes'):
+    res = str(input())
+    if res == 'Yes' or 'yes':
         for enemy in (trash):
-            print(f"You have encountered the {enemy['name']}")
-            print(f"Do you want to fight or flee?")
-            res = input()
-            if (res == 'Fight' or 'fight'):
-                # eHP = {enemy['health']}
-                # print(eHP)
+            print(f"""
+            A {enemy['name']} has ambushed {name}!!
+            Do you want to fight or flee?
+            """)
+            res = str(input())
+            if res == 'Fight' or 'fight':
                 hero_attack = roll
-                print(hero_attack)
                 values = {enemy['attack']}
                 values = ''.join(map(str, {enemy['attack']}))
                 enemy_attack = int(values)
-                print(enemy_attack)
                 for enemy_hp in ({enemy['health']}):
-                    print({enemy['health']})
-                    print(enemy_hp, '->', enemy_hp)
                     while enemy_hp > 0:
+                        # global stage
+                        # print(f"==============================[STAGE {stage}]==============================")
                         enemy_hp -= hero_attack
-                        print(enemy_hp)
-                        print(f"{hero_attack} // {enemy_hp}")
-                        print(
-                            f"The {enemy['name']} has [{enemy_hp}: HP] remaining!")
+                        print(f"""
+                {name} swiftly delivers a strike to the {enemy['name']}
+                The {enemy['name']} receives {hero_attack} damage!
+                The {enemy['name']} has [{enemy_hp}: HP] remai
+                                """)
                         global HP
                         HP -= enemy_attack
-                        print(f"{name}, you have [{HP}: HP] remaining!")
+                        print(f"""
+                The {enemy['name']} hits {name}
+                {name} receives {enemy_attack} damage!
+                {name} has [{HP}: HP] remaining!
+                                """)
+                        global counter
+                        counter += 1
+                        # stage += 1
+                        print(f"=====Round:[-> {counter} <-]=====")
                         if enemy_hp <= 0:
                             print(f"{name} defeated the {enemy['name']}.")
-            elif (res == "Flee" or res == 'flee'):
-                print('lose')
+                        elif HP <= 0:
+                            print(f"""
+                You Lose!
+                Sorry {name}, you did not escape please try again!
+                                    """)
+            elif res == "Flee" or 'flee':
+                print(f"While deciding to flee {name} receives 5 damage!!")
                 HP -= 5
-                print(f'Your current HP is [{HP}: HP]!')
-        for boss in (bosses):
-            print(f"{boss}")
-            print(f"{bosses}")
-            print(f""" The {boss['name']} has emerged onto the battlefield.
-                       {name} did not have the opportunity to avoid the encounter,
-                       preparing thierself, {name} attacks the {boss['name']}! """)
-            print("===================================================================")
-            bHP = {boss['health']}
-            print(bHP)
-            boss_attack = {boss['health']}
-            print(boss_attack)
-            while bHP > 0:
-                bHP -= hero_attack
-                print(
-                    f"{name} swings thier sword and hits the {boss['name']} for {hero_attack} damage!")
-                HP -= boss_attack
-                print(f"""The {boss['name']}, delivers a powerful blow to {name}!
-                          {name} takes {boss_attack} damage from the {boss['name']}!
-                          {name} has [{HP}: HP] remaining!""")
-                if bHP <= 0:
-                    print(f"{name} has defeated the deadly {boss['name']}!")
+                print(f'{name}\'s current HP is [{HP}: HP]!')
+        print(f"""
+        The {bosses[0]['name']} has emerged onto the battlefield.
+        {name} did not have an opportunity to avoid the encounter,
+        preparing thierself, {name} attacks the {bosses[0]['name']}!
+                """)
+        bHP = bosses[0]['health']
+        boss_attack = bosses[0]['attack']
+        while bHP > 0:
+            bHP -= hero_attack
+            print("==============================[BOSS]==============================")
+            print(
+                f"""
+        {name} swings thier sword and hits the {bosses[0]['name']} for {hero_attack} damage!
+        The {bosses[0]['name']} has [{bHP}: HP] remaining!
+                    """)
+            HP -= boss_attack
+            print(f"""
+        The {bosses[0]['name']}, delivers a powerful blow to {name}!
+        {name} takes {boss_attack} damage from the {bosses[0]['name']}!
+        {name} has [{HP}: HP] remaining!
+                    =====Round:[-> {counter} <-]=====""")
+            counter += 1
+            if bHP <= 0 and HP > 0:
+                print(f"""
+        {name} has defeated the deadly {bosses[0]['name']}!
+        Congratulations, you defeated the {bosses[0]['name']} and escaped the Dark Forest!
+                        """)
+                print('''Would you like to play again? 
+                            Yes or No?''')
+                restart()
+            elif HP <= 0:
+                print(f"""
+            You Lose!
+            Sorry {name}, you did not escape please try again!
+                        """)
+                restart()
 
-                    def restart():
-                        print(
-                            f"Congratulations, you defeated the {boss['name']} and escaped the Dark Forest!")
-                        print('''Would you like to play again? 
-                        Yes or No?''')
-                        res = input()
-                        if res == 'Yes' or 'yes':
-                            start()
-                            restart()
-                        else:
-                            print('Please come back soon!')
-    else:
-        print(f'Farewell {name}, see you soon!')
+            def restart():
+                print('''Would you like to play again? 
+                            Yes or No?''')
+                res = str(input())
+                if res == 'Yes' or 'yes':
+                    start()
+                    restart()
+                else:
+                    print('Please come back soon!')
 
-
+# global stage
+# stage = 1
+global counter
+counter = 0
 global HP
 HP = 50
 
