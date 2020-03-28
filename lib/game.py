@@ -31,6 +31,7 @@ from bosses import bosses
 
 
 def start():
+    HP = 50
     random.shuffle(trash)
     random.shuffle(bosses)
     print('Hello there brave adventurer, what is your name?')
@@ -43,7 +44,7 @@ def start():
     print(f"""
         =========================================================================================
         || INSTRUCTIONS:                                                                       ||
-        || The objective is to defeat all five enemies plus one boss enemy.                    ||
+        || The objective is to defeat all enemies plus one boss enemy.                    ||
         || Your hero has Health Points (HP) that diminish when receiving attacks.              ||
         || Your HP will be displayed after the start of your adventure and before every fight. ||
         || You will be asked to fight or flee before every fight, excluding the boss fight.    ||
@@ -80,7 +81,7 @@ def start():
             The {enemy['name']} has [{enemy_hp}: HP] remaining
                                 """)
                     time.sleep(1)
-                    global HP
+                    # global HP
                     HP -= enemy_attack
                     print(f"""
             The {enemy['name']} hits {name}
@@ -151,7 +152,6 @@ def start():
                         """)
                 return restart()
 
-
 def restart():
     print('''Would you like to play again?
                 Yes or No?''')
@@ -159,12 +159,12 @@ def restart():
     if res == 'Yes' or 'yes':
         start()
         restart()
-    elif res == 'No' or 'no':
+    if res == 'No' or 'no':
         print('Please come back soon!')
 
 # print(trash)
 global HP
-HP = 50
+HP = 0
 global roll
 roll = random.randint(4, 9)
 global hero_attack
