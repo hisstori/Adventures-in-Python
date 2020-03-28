@@ -98,7 +98,7 @@ def start():
                                     """)
                         restart()
                     # fight()
-                        bossFight()
+                        # bossFight()
             elif res == 'flee':
                 print(f"While deciding to flee {name} receives 5 damage!!")
                 HP -= 5
@@ -107,7 +107,9 @@ def start():
                 print("Goodbye!")
                 exit()
 
-    def bossFight():
+    # def bossFight():
+        print("Press any key to continue to Boss Fight")
+        input()
         print(f"""
             ==================================================================
               The {bosses[0]['name']} has emerged onto the battlefield.
@@ -129,7 +131,6 @@ def start():
         The {bosses[0]['name']} has [{bHP}: HP] remaining!
                     """)
             print(time.sleep(2))
-            global HP
             HP -= boss_attack
             print(f"""
         The {bosses[0]['name']}, delivers a powerful blow to {name}!
@@ -158,12 +159,12 @@ def restart():
     if res == 'Yes' or 'yes':
         start()
         restart()
-    else:
+    elif res == 'No' or 'no':
         print('Please come back soon!')
 
-
+# print(trash)
 global HP
-HP = 10
+HP = 50
 global roll
 roll = random.randint(4, 9)
 global hero_attack
