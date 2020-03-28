@@ -61,8 +61,8 @@ def start():
             Do you want to fight or flee?
             """)
             res = input()
-            if res == 'Fight' or 'fight':
-        # def fight():
+            if res == 'fight':
+                # def fight():
                 # hero_attack = roll
                 values = {enemy['attack']}
                 values = ''.join(map(str, {enemy['attack']}))
@@ -77,36 +77,36 @@ def start():
             The {enemy['name']} receives {hero_attack} damage!
             The {enemy['name']} has [{enemy_hp}: HP] remai
                                 """)
-                        global HP
-                        HP -= enemy_attack
-                        print(f"""
+                    global HP
+                    HP -= enemy_attack
+                    print(f"""
             The {enemy['name']} hits {name}
             {name} receives {enemy_attack} damage!
             {name} has [{HP}: HP] remaning!
                                 """)
-                        global counter
-                        counter += 1
-                        # stage += 1
-                        print(f"          =====Round:[-> {counter} <-]=====")
-                        if enemy_hp <= 0:
-                            print(f"{name} defeated the {enemy['name']}.")
-                        if HP <= 0:
-                            print(f"""
+                    # stage += 1
+                    if enemy_hp <= 0:
+                        print(f"{name} defeated the {enemy['name']}.")
+                    if HP <= 0:
+                        print(f"""
             You Lose!
             Sorry {name}, you did not escape please try again!
                                     """)
                     # fight()
                     # bossFight()
-                else:
-                    print(f"While deciding to flee {name} receives 5 damage!!")
-                    HP -= 5
-                    print(f'{name}\'s current HP is [{HP}: HP]!')
+            elif res == 'flee':
+                print(f"While deciding to flee {name} receives 5 damage!!")
+                HP -= 5
+                print(f'{name}\'s current HP is [{HP}: HP]!')
+            else:
+                print("Goodbye!")
+                exit()
         # def bossFight():
-        print(f"""
+            print(f"""
             ==================================================================   
-            ||  The {bosses[0]['name']} has emerged onto the battlefield.   ||
-            ||  {name} did not have an opportunity to avoid the encounter,  ||
-            ||  preparing thierself, {name} attacks the {bosses[0]['name']}!||
+              The {bosses[0]['name']} has emerged onto the battlefield.   
+              {name} did not have an opportunity to avoid the encounter,  
+              preparing thierself, {name} attacks the {bosses[0]['name']}!
             ==================================================================
                     """)
         print("Press any key to continue")
@@ -126,9 +126,7 @@ def start():
             print(f"""
         The {bosses[0]['name']}, delivers a powerful blow to {name}!
         {name} takes {boss_attack} damage from the {bosses[0]['name']}!
-        {name} has [{HP}: HP] remaining!
-                    =====Round:[-> {counter} <-]=====""")
-            counter += 1
+        {name} has [{HP}: HP] remaining!""")
             if bHP <= 0 and HP > 0:
                 print(f"""
         {name} has defeated the deadly {bosses[0]['name']}!
@@ -154,9 +152,6 @@ def start():
                     print('Please come back soon!')
 
 
-
-global counter
-counter = 0
 global HP
 HP = 100
 global roll
