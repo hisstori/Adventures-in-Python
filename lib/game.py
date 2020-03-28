@@ -1,5 +1,6 @@
 # import random method to use for attacks
 import random
+import time
 # from hero import hero
 from monsters import trash
 from bosses import bosses
@@ -35,6 +36,11 @@ def start():
     print('Hello there brave adventurer, what is your name?')
     name = input()
     print(f"""
+                  Hello { name }, welcome to Adventures in Python!!
+                  In this game you take control of a lone hero and
+                  Try escape the forested area from which you awoke    """)
+    time.sleep(1)
+    print(f"""
         =========================================================================================
         || INSTRUCTIONS:                                                                       ||
         || The objective is to defeat all five enemies plus one boss enemy.                    ||
@@ -46,10 +52,6 @@ def start():
         || Fleeing will cause you to avoid the fight at the cost of 7 HP.                      ||
         || VICTORY: You defeat all five enemies and the boss.                                  ||
         || DEFEAT: You lose all of your HP.                                                    ||
-        =========================================================================================
-        ||                 Hello { name }, welcome to Adventures in Python!!                   ||
-        ||                 In this game you take control of a lone hero and                    ||
-        ||                 Try escape the forested area from which you awoke                   ||
         =========================================================================================
     """)
     print(f'Are you ready to continue {name}?')
@@ -75,16 +77,18 @@ def start():
                         print(f"""
             {name} delivers a strike to the {enemy['name']}
             The {enemy['name']} receives {hero_attack} damage!
-            The {enemy['name']} has [{enemy_hp}: HP] remai
+            The {enemy['name']} has [{enemy_hp}: HP] remaining
                                 """)
+                    time.sleep(1)
                     global HP
                     HP -= enemy_attack
                     print(f"""
             The {enemy['name']} hits {name}
             {name} receives {enemy_attack} damage!
-            {name} has [{HP}: HP] remaning!
+            {name} has [{HP}: HP] remaining!
                                 """)
                     # stage += 1
+                    time.sleep(1)
                     if enemy_hp <= 0:
                         print(f"{name} defeated the {enemy['name']}.")
                     if HP <= 0:
@@ -92,8 +96,9 @@ def start():
             You Lose!
             Sorry {name}, you did not escape please try again!
                                     """)
+                        restart()
                     # fight()
-                    # bossFight()
+                        bossFight()
             elif res == 'flee':
                 print(f"While deciding to flee {name} receives 5 damage!!")
                 HP -= 5
@@ -101,15 +106,16 @@ def start():
             else:
                 print("Goodbye!")
                 exit()
-        # def bossFight():
-            print(f"""
-            ==================================================================   
-              The {bosses[0]['name']} has emerged onto the battlefield.   
-              {name} did not have an opportunity to avoid the encounter,  
+
+    def bossFight():
+        print(f"""
+            ==================================================================
+              The {bosses[0]['name']} has emerged onto the battlefield.
+              {name} did not have an opportunity to avoid the encounter,
               preparing thierself, {name} attacks the {bosses[0]['name']}!
             ==================================================================
                     """)
-        print("Press any key to continue")
+        print("Press any key to continue to Boss Fight")
         input()
         bHP = bosses[0]['health']
         boss_attack = bosses[0]['attack']
@@ -122,38 +128,42 @@ def start():
         {name} swings thier sword and hits the {bosses[0]['name']} for {hero_attack} damage!
         The {bosses[0]['name']} has [{bHP}: HP] remaining!
                     """)
+            print(time.sleep(2))
+            global HP
             HP -= boss_attack
             print(f"""
         The {bosses[0]['name']}, delivers a powerful blow to {name}!
         {name} takes {boss_attack} damage from the {bosses[0]['name']}!
         {name} has [{HP}: HP] remaining!""")
+            time.sleep(2)
             if bHP <= 0 and HP > 0:
                 print(f"""
         {name} has defeated the deadly {bosses[0]['name']}!
         Congratulations, you defeated the {bosses[0]['name']} and escaped the Dark Forest!
                         """)
-                print('''Would you like to play again? 
+                print('''Would you like to play again?
                             Yes or No?''')
             elif HP <= 0:
                 print(f"""
             You Lose!
             Sorry {name}, you did not escape please try again!
                         """)
-                restart()
+                return restart()
 
-            def restart():
-                print('''Would you like to play again? 
-                            Yes or No?''')
-                res = input()
-                if res == 'Yes' or 'yes':
-                    start()
-                    restart()
-                else:
-                    print('Please come back soon!')
+
+def restart():
+    print('''Would you like to play again?
+                Yes or No?''')
+    res = input()
+    if res == 'Yes' or 'yes':
+        start()
+        restart()
+    else:
+        print('Please come back soon!')
 
 
 global HP
-HP = 100
+HP = 10
 global roll
 roll = random.randint(4, 9)
 global hero_attack
