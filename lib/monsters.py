@@ -30,20 +30,4 @@ trash = [{
     "name": "Giant Spider",
     "health": 8,
     "attack": 5
-},
-# {
-#     "name": "Troll",
-#     "health": 12,
-#     "attack": 6
-# },
-# {
-#     "name": "Troll Demolitionist",
-#     "health": 9,
-#     "attack": 10
-# },
-# {
-#     "name": "Goblin Sapper",
-#     "health": 10,
-#     "attack": 6
-# }
-]
+}]

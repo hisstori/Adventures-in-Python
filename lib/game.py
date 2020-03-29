@@ -5,6 +5,14 @@ import time
 from monsters import trash
 from bosses import bosses
 
+def prRed(skk): print("\033[91m {}\033[00m" .format(skk)) 
+def prGreen(skk): print("\033[92m {}\033[00m" .format(skk)) 
+def prYellow(skk): print("\033[93m {}\033[00m" .format(skk)) 
+def prLightPurple(skk): print("\033[94m {}\033[00m" .format(skk)) 
+def prPurple(skk): print("\033[95m {}\033[00m" .format(skk)) 
+def prCyan(skk): print("\033[96m {}\033[00m" .format(skk)) 
+def prLightGray(skk): print("\033[97m {}\033[00m" .format(skk)) 
+def prBlack(skk): print("\033[98m {}\033[00m" .format(skk)) 
 
 # TODO G create welcome landing as table of contents with more info
 # TODO G create an input to take you to an instructions script
@@ -31,7 +39,7 @@ from bosses import bosses
 
 
 def start():
-    HP = 50
+    HP = 70
     random.shuffle(trash)
     random.shuffle(bosses)
     print('Hello there brave adventurer, what is your name?')
@@ -41,10 +49,10 @@ def start():
                   In this game you take control of a lone hero and
                   Try escape the forested area from which you awoke    """)
     time.sleep(1)
-    print(f"""
+    prYellow(f"""
         =========================================================================================
         || INSTRUCTIONS:                                                                       ||
-        || The objective is to defeat all enemies plus one boss enemy.                    ||
+        || The objective is to defeat all enemies plus one boss enemy.                         ||
         || Your hero has Health Points (HP) that diminish when receiving attacks.              ||
         || Your HP will be displayed after the start of your adventure and before every fight. ||
         || You will be asked to fight or flee before every fight, excluding the boss fight.    ||
@@ -75,25 +83,25 @@ def start():
                         # global stage
                         # print(f"==============================[STAGE {stage}]==============================")
                         enemy_hp -= hero_attack
-                        print(f"""
+                        time.sleep(1)
+                        prCyan(f"""
             {name} delivers a strike to the {enemy['name']}
             The {enemy['name']} receives {hero_attack} damage!
             The {enemy['name']} has [{enemy_hp}: HP] remaining
                                 """)
-                    time.sleep(1)
-                    # global HP
-                    HP -= enemy_attack
-                    print(f"""
+                        time.sleep(1)
+                        # global HP
+                        HP -= enemy_attack
+                        prRed(f"""
             The {enemy['name']} hits {name}
             {name} receives {enemy_attack} damage!
             {name} has [{HP}: HP] remaining!
                                 """)
                     # stage += 1
-                    time.sleep(1)
                     if enemy_hp <= 0:
                         print(f"{name} defeated the {enemy['name']}.")
                     if HP <= 0:
-                        print(f"""
+                        prRed(f"""
             You Lose!
             Sorry {name}, you did not escape please try again!
                                     """)
@@ -101,7 +109,7 @@ def start():
                     # fight()
                         # bossFight()
             elif res == 'flee':
-                print(f"While deciding to flee {name} receives 5 damage!!")
+                prYellow(f"While deciding to flee {name} receives 5 damage!!")
                 HP -= 5
                 print(f'{name}\'s current HP is [{HP}: HP]!')
             else:
@@ -111,7 +119,7 @@ def start():
     # def bossFight():
         print("Press any key to continue to Boss Fight")
         input()
-        print(f"""
+        prYellow(f"""
             ==================================================================
               The {bosses[0]['name']} has emerged onto the battlefield.
               {name} did not have an opportunity to avoid the encounter,
@@ -126,20 +134,20 @@ def start():
             bHP -= hero_attack
             print(
                 "==============================[BOSS]==============================")
-            print(
+            prCyan(
                 f"""
         {name} swings thier sword and hits the {bosses[0]['name']} for {hero_attack} damage!
         The {bosses[0]['name']} has [{bHP}: HP] remaining!
                     """)
-            print(time.sleep(2))
+            time.sleep(2)
             HP -= boss_attack
-            print(f"""
+            prRed(f"""
         The {bosses[0]['name']}, delivers a powerful blow to {name}!
         {name} takes {boss_attack} damage from the {bosses[0]['name']}!
         {name} has [{HP}: HP] remaining!""")
             time.sleep(2)
             if bHP <= 0 and HP > 0:
-                print(f"""
+                prGreen(f"""
         {name} has defeated the deadly {bosses[0]['name']}!
         Congratulations, you defeated the {bosses[0]['name']} and escaped the Dark Forest!
                         """)
