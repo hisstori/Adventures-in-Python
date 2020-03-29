@@ -57,9 +57,9 @@ def start():
         || Your HP will be displayed after the start of your adventure and before every fight. ||
         || You will be asked to fight or flee before every fight, excluding the boss fight.    ||
         || Fighting will commence the fight between you and the enemy.                         ||
-        || Attacks will play out over time and will do random damage to an enemy.       ||
+        || Attacks will play out over time and will do random damage to an enemy.              ||
         || Fleeing will cause you to avoid the fight at the cost of 5 HP.                      ||
-        || VICTORY: You defeat all  enemies and the boss.                                       ||
+        || VICTORY: You defeat all  enemies and the boss.                                      ||
         || DEFEAT: You lose all of your HP.                                                    ||
         =========================================================================================
     """)
