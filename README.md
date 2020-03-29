@@ -3,10 +3,7 @@
 Adventures in Python is an short adventure game where you must escape the forest. 
 The user will be able to name their hero and fight several enemies including a boss at the end.
 During the course of the adventure the user will either lose all health or prevail victorious.
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+![](https://imgur.com/a/990yjg2.png)
 
 ### Prerequisites
 
