@@ -63,7 +63,7 @@ def start():
         || DEFEAT: You lose all of your HP.                                                    ||
         =========================================================================================
     """)
-    print(f'You have {HP}, are you ready to continue {name}?')
+    print(f'You have {HP}: HP, are you ready to continue {name}?')
     res = input()
     if res == 'Yes' or 'yes':
         for enemy in (trash):
