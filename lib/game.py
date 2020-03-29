@@ -57,13 +57,13 @@ def start():
         || Your HP will be displayed after the start of your adventure and before every fight. ||
         || You will be asked to fight or flee before every fight, excluding the boss fight.    ||
         || Fighting will commence the fight between you and the enemy.                         ||
-        || Attacks will be entered with "Hit/hit" and will do random damage to an enemy.       ||
-        || Fleeing will cause you to avoid the fight at the cost of 7 HP.                      ||
-        || VICTORY: You defeat all five enemies and the boss.                                  ||
+        || Attacks will play out over time and will do random damage to an enemy.       ||
+        || Fleeing will cause you to avoid the fight at the cost of 5 HP.                      ||
+        || VICTORY: You defeat all  enemies and the boss.                                       ||
         || DEFEAT: You lose all of your HP.                                                    ||
         =========================================================================================
     """)
-    print(f'Are you ready to continue {name}?')
+    print(f'You have {HP}, are you ready to continue {name}?')
     res = input()
     if res == 'Yes' or 'yes':
         for enemy in (trash):
