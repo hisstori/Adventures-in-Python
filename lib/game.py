@@ -4,15 +4,19 @@ import time
 # from hero import hero
 from monsters import trash
 from bosses import bosses
+from bosses import Boss
+from items import Item
 
-def prRed(skk): print("\033[91m {}\033[00m" .format(skk)) 
+
+def prRed(skk): print("\033[91m {}\033[00m" .format(skk))
 def prGreen(skk): print("\033[92m {}\033[00m" .format(skk))
-def prYellow(skk): print("\033[93m {}\033[00m" .format(skk)) 
-def prLightPurple(skk): print("\033[94m {}\033[00m" .format(skk)) 
-def prPurple(skk): print("\033[95m {}\033[00m" .format(skk)) 
-def prCyan(skk): print("\033[96m {}\033[00m" .format(skk)) 
-def prLightGray(skk): print("\033[97m {}\033[00m" .format(skk)) 
-def prBlack(skk): print("\033[98m {}\033[00m" .format(skk)) 
+def prYellow(skk): print("\033[93m {}\033[00m" .format(skk))
+def prLightPurple(skk): print("\033[94m {}\033[00m" .format(skk))
+def prPurple(skk): print("\033[95m {}\033[00m" .format(skk))
+def prCyan(skk): print("\033[96m {}\033[00m" .format(skk))
+def prLightGray(skk): print("\033[97m {}\033[00m" .format(skk))
+def prBlack(skk): print("\033[98m {}\033[00m" .format(skk))
+
 
 # TODO G create welcome landing as table of contents with more info
 # TODO G create an input to take you to an instructions script
@@ -22,7 +26,7 @@ def prBlack(skk): print("\033[98m {}\033[00m" .format(skk))
 # shuffles boss(strong) enemies
 # this variable will hold the hero total health points
 # welcome user to game and ask them to input thier name
-# URGENT welcome user and describe here how the health and attack systems play out
+# welcome user and describe here how the health and attack systems play out
 # TODO S ask user to select hero armor:  light, medium, heavy
 # TODO S armor type will determine health points (HP)
 # accept user name and use that name for remainder of game
@@ -72,7 +76,7 @@ def start():
             Do you want to fight or flee?
             """)
             res = input()
-            if res == 'fight':
+            if res == 'fight' or 'item':
                 # def fight():
                 # hero_attack = roll
                 values = {enemy['attack']}
@@ -160,6 +164,7 @@ def start():
                         """)
                 return restart()
 
+
 def restart():
     print('''Would you like to play again?
                 Yes or No?''')
@@ -167,8 +172,9 @@ def restart():
     if res == 'Yes' or 'yes':
         start()
         restart()
-    if res == 'No' or 'no':
-        print('Please come back soon!')
+    elif res == 'No' or 'no':
+        print("Please come back soon!")
+
 
 # print(trash)
 global HP

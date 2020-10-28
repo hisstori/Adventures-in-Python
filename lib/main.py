@@ -8,12 +8,12 @@ class BaseModel (Model):
     class Meta:
         database = db
 
-class Trash(BaseModel):
+class Trash (BaseModel):
     name = CharField()
     health = IntegerField()
     attack = IntegerField()
 
-class Boss(BaseModel):
+class Boss (BaseModel):
     name = CharField()
     health = IntegerField()
     attack = IntegerField()
