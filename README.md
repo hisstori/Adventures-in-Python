@@ -55,7 +55,7 @@ python game.py
 
 ## Authors
 
-* **Ryan Brown** - *Full Project* - [GitHub](https://github.com/PurpleBooth)
+* **Ryan Brown** - *Full Project* - [GitHub](https://github.com/Hisstori)
 
 ## License
 
